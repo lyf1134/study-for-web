@@ -9,10 +9,10 @@ async def create_pool(loop, **kw):
 	__pool = await aiomysql.create_pool(
 		host = kw.get('hoat','localhoat'),
 		post = kw.get('port',3306),
-		user = kw['user'],#按需修改
+		user = kw['root'],#按需修改
 		password = kw['password'],#按需修改
 		db = kw['db'],
-		charset = kw.get('charset','utf-8'),
+		charset = kw.get('charset','utf8'),
 		autocommit = kw.get('autocommit',True),
 		maxsize = kw.get('maxsize',10),
 		minsize = kw.get('minsize',1),
