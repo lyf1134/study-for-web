@@ -1,11 +1,11 @@
-import orm
+import orm,asyncio
 from models import User, Blog, Comment
 
-async def test():
-	await orm.create_pool(user='www-date', password='www-date',database='awesome')
-	u =User(name='Test', email='Test@example.com', password='123456',image='about:blank')
+async def test(loop):
+	await orm.create_pool(loop,user='root', password='password', db='awesome')
+	u = User(name='Test', email='test@example.com', password='1234567890', image='about:blank')
 	await u.save()
 
-for x in test():
-	pass
-	
+loop = asyncio.get_event_loop()
+loop.run_until_complete(asyncio.wait(test(loop)))
+loop.close()
