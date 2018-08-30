@@ -7,10 +7,10 @@ async def create_pool(loop, **kw):
 	logging.info('Create datebase connection pool...')
 	global __pool
 	__pool = await aiomysql.create_pool(
-		host = kw.get('hoat','localhoat'),
-		post = kw.get('port',3306),
-		user = kw['root'],#按需修改
-		password = kw['password'],#按需修改
+		host = kw.get('hoat','localhost'),
+		port = kw.get('port',3306),
+		user = kw['user'],
+		password = kw['passwd'],
 		db = kw['db'],
 		charset = kw.get('charset','utf8'),
 		autocommit = kw.get('autocommit',True),
