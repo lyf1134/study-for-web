@@ -5,15 +5,7 @@ from apis import Page,APIValueError, APIResourceNotFoundError
 from config import configs
 from aiohttp import web
 import markdown2
-'''
-@get('/')
-async def index(request):
-	users = await User.findAll()
-	return {
-		'__template__': 'test.html',
-		'users': users
-	}
-'''
+
 COOKIE_NAME = 'awesession'
 _COOKIE_KEY = configs.session.secret
 
